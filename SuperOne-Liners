@@ -1,0 +1,58 @@
+
+    nmap -sS -A -T4 -Pn -f -D RND**10 --script vuln,exploit <target IP> ** This 
+command performs an aggressive scan with OS detection, version detection, script scanning  
+  
+    nmap -sV -sC -oN --max-parallelism 1000 --script vuln <filename> <target IP> ** This command performs a service version scan and runs default scripts with output to a specified filename 
+  
+    nmap -Pn -sV --script vuln -T4 -f -D RND**10 --script-args unsafe=1 <target IP> ** This command performs a service version scan and runs all available vulnerability detection scripts  
+  
+    nmap -sU -p 53 --scan-delay 5 --max-retries 0 -D RND**10 --script vuln,exploit 
+<target IP> ** This command performs a UDP port scan on port 53 to check for DNS servers.
+  
+    nmap -sS -T4 -O -F --version-light --min-hostgroup 256 --minparallelism 256 --
+script vuln <target IP> ** This command performs a fast TCP scan with OS detection and service version detection 
+  
+    nmap -sS -sU -PN -p U**53,T**21-25,80,139,8080 -f -D RND**10 -script 
+vuln,exploit <target IP> ** This command performs a TCP and UDP scan on specified ports to check for open services.
+  
+    nmap -sS -T4 -sV --version-all -A -oX <filename> --max-rate 2000 -script vuln,exploit <target IP> ** This command performs an aggressive scan with service version detection and outputs results to an XML file 
+  
+    nmap -sS -T4 -sU -PN -p U**161,T**161,162 -f -D RND**10 -script 
+vuln,exploit <target IP> ** This command performs a TCP and UDP scan on SNMP ports to check for open SNMP services.
+
+
+    nmap -sS -T4 -A -v -PE -PP -PS80,443 -PA3389 -PU40125 -PY -g 53 --script "default or (discovery and safe)" --min-hostgroup 256 --minparallelism 256 -script vuln,exploit <target IP> ** This command performs an aggressive scan with OS detection, version detection, and script scanning with advanced ping sweeps 
+  
+    nmap -sP -PS21-23,25,80,443,3389 -PA80,443,3389 -PE -PP -PM -min-rate 200 --max-parallelism 1000 --script vuln <target IP>/24 ** This command performs a ping sweep scan of a network range to identify live hosts with open ports.
+
+
+nmap -sS -T4 -A -v -PE -PP -PS80,443 -PA3389 -PU40125 -PY -g 53 -script "default or (discovery and safe)" --min-hostgroup 256 --minparallelism 256 -script vuln,exploit <target IP> ** Once vulnerabilities have been identified, you can use the search command in msfconsole to search for relevant modules, and then use the use command followed by the module name to select and configure the module. Finally, you can use the run command to execute the module.  
+
+
+nmap -sP -PS21-23,25,80,443,3389 -PA80,443,3389 -PE -PP -PM -min-rate 200 --max-parallelism 1000 --script vuln <target IP>/24 ** Once vulnerabilities have been identified, you can use the search command in msfconsole to search for relevant modules, and then use the use command followed by the module name to select and configure the module. Finally, you can use the run command to execute the module.  
+
+
+    nmap -sS -A -T4 -Pn -f -D RND**10 --script vuln,exploit <target IP> ** This 
+command performs an aggressive scan with OS detection, version detection, script scanning.
+  
+    nmap -sV -sC -oN --max-parallelism 1000 --script vuln <filename> <target IP> ** This command performs a service version scan and runs default scripts with output to a specified filename. 
+  
+    nmap -Pn -sV --script vuln -T4 -f -D RND**10 --script-args unsafe=1 <target IP> ** This command performs a service version scan.
+  
+    nmap -sU -p 53 --scan-delay 5 --max-retries 0 -D RND**10 --script vuln,exploit 
+<target IP> ** This command performs a UDP port scan on port 53 to check for DNS servers.
+  
+    nmap -sS -T4 -O -F --version-light --min-hostgroup 256 --minparallelism 256 --
+script vuln <target IP> ** This command performs a fast TCP scan with OS detection and service version detection 
+  
+    nmap -sS -sU -PN -p U**53,T**21-25,80,139,8080 -f -D RND**10 -script 
+vuln,exploit <target IP> ** This command performs a TCP and UDP scan on specified ports to check for open services. 
+  
+    nmap -sS -T4 -sV --version-all -A -oX <filename> --max-rate 2000 -script vuln,exploit <target IP> ** This command performs an aggressive scan with service version detection and outputs results to an XML file 
+  
+    nmap -sS -T4 -sU -PN -p U**161,T**161,162 -f -D RND**10 -script 
+vuln,exploit <target IP> ** This command performs a TCP and UDP scan on SNMP ports to check for open SNMP services.
+  
+    nmap -sS -T4 -A -v -PE -PP -PS80,443 -PA3389 -PU40125 -PY -g 53 --script "default or (discovery and safe)" --min-hostgroup 256 --minparallelism 256 -script vuln,exploit <target IP> ** This command performs an aggressive scan with OS detection, version detection, and script scanning with advanced ping sweeps 
+  
+    nmap -sP -PS21-23,25,80,443,3389 -PA80,443,3389 -PE -PP -PM -min-rate 200 --max-parallelism 1000 --script vuln <target IP>/24 ** This command performs a ping sweep scan of a network range to identify live hosts with open ports 
